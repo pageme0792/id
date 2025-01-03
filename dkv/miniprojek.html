@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width= , initial-scale=1.0" />
+
+    <title>Mini Projek.</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- transisi scroll -->
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/keen-slider.min.css"
+      rel="stylesheet"
+    />
+
+    <script type="module">
+      import KeenSlider from "https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/+esm";
+
+      const keenSliderActive = document.getElementById("keen-slider-active");
+      const keenSliderCount = document.getElementById("keen-slider-count");
+
+      const keenSlider = new KeenSlider(
+        "#keen-slider",
+        {
+          loop: true,
+          defaultAnimation: {
+            duration: 750,
+          },
+          slides: {
+            origin: "center",
+            perView: 1,
+            spacing: 16,
+          },
+          breakpoints: {
+            "(min-width: 640px)": {
+              slides: {
+                origin: "center",
+                perView: 1.5,
+                spacing: 16,
+              },
+            },
+            "(min-width: 768px)": {
+              slides: {
+                origin: "center",
+                perView: 1.75,
+                spacing: 16,
+              },
+            },
+            "(min-width: 1024px)": {
+              slides: {
+                origin: "center",
+                perView: 3,
+                spacing: 16,
+              },
+            },
+          },
+          created(slider) {
+            slider.slides[slider.track.details.rel].classList.remove(
+              "opacity-40"
+            );
+
+            keenSliderActive.innerText = slider.track.details.rel + 1;
+            keenSliderCount.innerText = slider.slides.length;
+          },
+          slideChanged(slider) {
+            slider.slides.forEach((slide) => slide.classList.add("opacity-40"));
+
+            slider.slides[slider.track.details.rel].classList.remove(
+              "opacity-40"
+            );
+
+            keenSliderActive.innerText = slider.track.details.rel + 1;
+          },
+        },
+        []
+      );
+
+      const keenSliderPrevious = document.getElementById(
+        "keen-slider-previous"
+      );
+      const keenSliderNext = document.getElementById("keen-slider-next");
+
+      keenSliderPrevious.addEventListener("click", () => keenSlider.prev());
+      keenSliderNext.addEventListener("click", () => keenSlider.next());
+    </script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div
+      class="fixed px-4 flex justify-between items-cente fixed bottom-5 right-0 right-0 z-10"
+    >
+      <a
+        href="#visidanmisi"
+        class="rounded-full text-white bg-rose-500 hover:bg-rose-400 focus:ring-4 focus:ring-rose-300 font-medium text-lg px-5 py-2.5 dark:bg-rose-300 dark:hover:bg-rose-400 focus:outline-none dark:focus:ring-rose-400"
+        >Cek Tugas</a
+      >
+    </div>
+    <div class="mx-auto bg-white overflow-auto h-full">
+      <!-- navigasi -->
+      <header
+        class="bg-white fixed px-28 max-sm:px-3 top-0 left-0 right-0 z-10"
+      >
+        <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+          <div class="flex h-16 items-center justify-between">
+            <div class="md:flex md:items-center md:gap-12">
+              <a>
+                <span class="sr-only">Home</span>
+                <h1
+                  class="bg-gradient-to-r from-pink-400 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-1xl italic"
+                >
+                  DKV.
+                </h1>
+              </a>
+            </div>
+
+            <div class="hidden md:block">
+              <nav aria-label="Global">
+                <ul class="flex items-center gap-10 text-sm">
+                  <li>
+                    <a
+                      class="text-gray-800 transition hover:text-gray-800/75 font-semi"
+                      href="#"
+                    >
+                      Beranda
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="text-gray-800 transition hover:text-gray-800/75"
+                      href="#"
+                    >
+                      Kelas
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="text-gray-800 transition hover:text-gray-800/75"
+                      href="#"
+                    >
+                      Riwayat
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+
+            <div class="flex items-center gap-4">
+              <div class="sm:flex sm:gap-4">
+                <a
+                  class="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+                  href="#"
+                >
+                  Chat Instruktur
+                </a>
+              </div>
+
+              <div class="block md:hidden">
+                <button
+                  class="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="size-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M4 6h16M4 12h16M4 18h16"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- DETAIL MATA PELAJARAN -->
+
+      <div
+        class="flow-root rounded-lg border border-gray-100 py-3 shadow-sm px-32 max-sm:px-10 mt-20"
+      >
+        <h2
+          class="text-2xl font-bold tracking-tight max-sm:text-2xl text-gray-700 text-center my-7 max-sm:px-20"
+        >
+          Detail Mata Pelajaran Mini Projek
+        </h2>
+        <dl class="-my-3 divide-y divide-gray-100 text-sm">
+          <div
+            class="grid grid-cols-1 gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4"
+          >
+            <dt class="font-medium text-gray-900">Mata Pelajaran</dt>
+            <dd class="text-gray-700 sm:col-span-2">
+              Dasar Program Keaglian DKV
+            </dd>
+          </div>
+
+          <div
+            class="grid grid-cols-1 gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4"
+          >
+            <dt class="font-medium text-gray-900">Nama Guru</dt>
+            <dd class="text-gray-700 sm:col-span-2">Riana Ali Nurdin, S.T</dd>
+          </div>
+
+          <div
+            class="grid grid-cols-1 gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4"
+          >
+            <dt class="font-medium text-gray-900">Betail Tahap Pembelajaran</dt>
+            <dd class="text-gray-700 sm:col-span-2">
+              <ol style="list-style-type: decimal">
+                <li>
+                  <p
+                    style="
+                      margin-top: 0cm;
+                      margin-right: 0cm;
+                      margin-bottom: 8pt;
+                      margin-left: 0cm;
+                      font-size: 11pt;
+                      font-family: 'Calibri', sans-serif;
+                    "
+                  >
+                    <strong>Tahapan Menguasai Adobe Illustrator</strong>
+                  </p>
+                  <p
+                    style="
+                      margin-top: 0cm;
+                      margin-right: 0cm;
+                      margin-bottom: 8pt;
+                      margin-left: 0cm;
+                      font-size: 11pt;
+                      font-family: 'Calibri', sans-serif;
+                    "
+                  >
+                    <strong>Mengenal Antarmuka</strong>
+                  </p>
+                  <ul style="margin-bottom: 0cm; margin-top: 0cm" type="disc">
+                    <li
+                      style="
+                        margin-top: 0cm;
+                        margin-right: 0cm;
+                        margin-bottom: 8pt;
+                        margin-left: 0cm;
+                        font-size: 11pt;
+                        font-family: 'Calibri', sans-serif;
+                      "
+                    >
+                      <strong>Toolbar:</strong> Pelajari fungsi setiap tool,
+                      mulai dari Selection Tool, Pen Tool, Shape Tool, hingga
+                      Type Tool.
+                    </li>
+                    <li
+                      style="
+                        margin-top: 0cm;
+                        margin-right: 0cm;
+                        margin-bottom: 8pt;
+                        margin-left: 0cm;
+                        font-size: 11pt;
+                        font-family: 'Calibri', sans-serif;
+                      "
+                    >
+                      <strong>Panel:</strong> Pahami fungsi panel-panel seperti
+                      Layers, Color, dan Properties.
+                    </li>
+                    <li
+                      style="
+                        margin-top: 0cm;
+                        margin-right: 0cm;
+                        margin-bottom: 8pt;
+                        margin-left: 0cm;
+                        font-size: 11pt;
+                        font-family: 'Calibri', sans-serif;
+                      "
+                    >
+                      <strong>Workspace:</strong> Sesuaikan workspace agar
+                      sesuai dengan preferensi kerja kamu.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <p
+                    style="
+                      margin-top: 0cm;
+                      margin-right: 0cm;
+                      margin-bottom: 8pt;
+                      margin-left: 0cm;
+                      font-size: 11pt;
+                      font-family: 'Calibri', sans-serif;
+                    "
+                  >
+                    <strong>Menguasai Dasar-Dasar</strong>
+                  </p>
+                  <ul style="margin-bottom: 0cm; margin-top: 0cm" type="disc">
+                    <li
+                      style="
+                        margin-top: 0cm;
+                        margin-right: 0cm;
+                        margin-bottom: 8pt;
+                        margin-left: 0cm;
+                        font-size: 11pt;
+                        font-family: 'Calibri', sans-serif;
+                      "
+                    >
+                      <strong>Membuat Dokumen Baru:</strong> Atur ukuran,
+                      satuan, dan mode warna yang sesuai dengan proyekmu.
+                    </li>
+                    <li
+                      style="
+                        margin-top: 0cm;
+                        margin-right: 0cm;
+                        margin-bottom: 8pt;
+                        margin-left: 0cm;
+                        font-size: 11pt;
+                        font-family: 'Calibri', sans-serif;
+                      "
+                    >
+                      <strong>Menggambar Bentuk:</strong> Pelajari cara membuat
+                      bentuk dasar menggunakan Shape Tool dan Pen Tool.
+                    </li>
+                    <li
+                      style="
+                        margin-top: 0cm;
+                        margin-right: 0cm;
+                        margin-bottom: 8pt;
+                        margin-left: 0cm;
+                        font-size: 11pt;
+                        font-family: 'Calibri', sans-serif;
+                      "
+                    >
+                      <strong>Mengedit Bentuk:</strong> Pelajari cara mengubah
+                      ukuran, memutar, dan memanipulasi bentuk.
+                    </li>
+                    <li
+                      style="
+                        margin-top: 0cm;
+                        margin-right: 0cm;
+                        margin-bottom: 8pt;
+                        margin-left: 0cm;
+                        font-size: 11pt;
+                        font-family: 'Calibri', sans-serif;
+                      "
+                    >
+                      <strong>Menerapkan Warna:</strong> Gunakan Color Panel
+                      untuk memilih warna dan menerapkannya pada objek.
+                    </li>
+                    <li
+                      style="
+                        margin-top: 0cm;
+                        margin-right: 0cm;
+                        margin-bottom: 8pt;
+                        margin-left: 0cm;
+                        font-size: 11pt;
+                        font-family: 'Calibri', sans-serif;
+                      "
+                    >
+                      <strong>Menerapkan Gradien:</strong> Buat efek warna yang
+                      lebih menarik dengan menggunakan Gradient Tool.
+                    </li>
+                    <li
+                      style="
+                        margin-top: 0cm;
+                        margin-right: 0cm;
+                        margin-bottom: 8pt;
+                        margin-left: 0cm;
+                        font-size: 11pt;
+                        font-family: 'Calibri', sans-serif;
+                      "
+                    >
+                      <strong>Mengatur Layer:</strong> Kelola objek dengan
+                      menggunakan layer untuk memudahkan pengeditan.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <p
+                    style="
+                      margin-top: 0cm;
+                      margin-right: 0cm;
+                      margin-bottom: 8pt;
+                      margin-left: 0cm;
+                      font-size: 11pt;
+                      font-family: 'Calibri', sans-serif;
+                    "
+                  >
+                    <strong>Mempelajari Fitur Lanjut</strong>
+                  </p>
+                  <ul style="margin-bottom: 0cm; margin-top: 0cm" type="disc">
+                    <li
+                      style="
+                        margin-top: 0cm;
+                        margin-right: 0cm;
+                        margin-bottom: 8pt;
+                        margin-left: 0cm;
+                        font-size: 11pt;
+                        font-family: 'Calibri', sans-serif;
+                      "
+                    >
+                      <strong>Pathfinder:</strong> Gabungkan, potong, atau
+                      kurangi bentuk menggunakan Pathfinder.
+                    </li>
+                    <li
+                      style="
+                        margin-top: 0cm;
+                        margin-right: 0cm;
+                        margin-bottom: 8pt;
+                        margin-left: 0cm;
+                        font-size: 11pt;
+                        font-family: 'Calibri', sans-serif;
+                      "
+                    >
+                      <strong>Blend Tool:</strong> Buat transisi halus antara
+                      dua bentuk.
+                    </li>
+                    <li
+                      style="
+                        margin-top: 0cm;
+                        margin-right: 0cm;
+                        margin-bottom: 8pt;
+                        margin-left: 0cm;
+                        font-size: 11pt;
+                        font-family: 'Calibri', sans-serif;
+                      "
+                    >
+                      <strong>Gradient Mesh:</strong> Buat gradien yang lebih
+                      kompleks dan realistis.
+                    </li>
+                    <li
+                      style="
+                        margin-top: 0cm;
+                        margin-right: 0cm;
+                        margin-bottom: 8pt;
+                        margin-left: 0cm;
+                        font-size: 11pt;
+                        font-family: 'Calibri', sans-serif;
+                      "
+                    >
+                      <strong>Efek:</strong> Tambahkan efek seperti drop shadow,
+                      outer glow, dan bevel and emboss.
+                    </li>
+                    <li
+                      style="
+                        margin-top: 0cm;
+                        margin-right: 0cm;
+                        margin-bottom: 8pt;
+                        margin-left: 0cm;
+                        font-size: 11pt;
+                        font-family: 'Calibri', sans-serif;
+                      "
+                    >
+                      <strong>Pattern:</strong> Buat pola yang berulang untuk
+                      mengisi objek.
+                    </li>
+                    <li
+                      style="
+                        margin-top: 0cm;
+                        margin-right: 0cm;
+                        margin-bottom: 8pt;
+                        margin-left: 0cm;
+                        font-size: 11pt;
+                        font-family: 'Calibri', sans-serif;
+                      "
+                    >
+                      <strong>Type Tool:</strong> Buat teks yang menarik dengan
+                      berbagai font, ukuran, dan efek.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <p
+                    style="
+                      margin-top: 0cm;
+                      margin-right: 0cm;
+                      margin-bottom: 8pt;
+                      margin-left: 0cm;
+                      font-size: 11pt;
+                      font-family: 'Calibri', sans-serif;
+                    "
+                  >
+                    <strong>Praktik Terus-Menerus</strong>
+                  </p>
+                  <ul style="margin-bottom: 0cm; margin-top: 0cm" type="disc">
+                    <li
+                      style="
+                        margin-top: 0cm;
+                        margin-right: 0cm;
+                        margin-bottom: 8pt;
+                        margin-left: 0cm;
+                        font-size: 11pt;
+                        font-family: 'Calibri', sans-serif;
+                      "
+                    >
+                      <strong>Buat Proyek Kecil:</strong> Mulai dengan proyek
+                      sederhana seperti membuat logo, kartu nama, atau ilustrasi
+                      sederhana.
+                    </li>
+                    <li
+                      style="
+                        margin-top: 0cm;
+                        margin-right: 0cm;
+                        margin-bottom: 8pt;
+                        margin-left: 0cm;
+                        font-size: 11pt;
+                        font-family: 'Calibri', sans-serif;
+                      "
+                    >
+                      <strong>Ikuti Tutorial:</strong> Banyak tutorial gratis
+                      dan berbayar yang bisa kamu temukan di YouTube,
+                      SkillShare, dan situs web lainnya.
+                    </li>
+                    <li
+                      style="
+                        margin-top: 0cm;
+                        margin-right: 0cm;
+                        margin-bottom: 8pt;
+                        margin-left: 0cm;
+                        font-size: 11pt;
+                        font-family: 'Calibri', sans-serif;
+                      "
+                    >
+                      <strong>Eksperimen:</strong> Jangan takut untuk mencoba
+                      hal-hal baru dan bereksperimen dengan berbagai fitur.
+                    </li>
+                    <li
+                      style="
+                        margin-top: 0cm;
+                        margin-right: 0cm;
+                        margin-bottom: 8pt;
+                        margin-left: 0cm;
+                        font-size: 11pt;
+                        font-family: 'Calibri', sans-serif;
+                      "
+                    >
+                      <strong>Bergabung dengan Komunitas:</strong> Bergabunglah
+                      dengan komunitas desain grafis untuk mendapatkan masukan
+                      dan inspirasi.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <p
+                    style="
+                      margin-top: 0cm;
+                      margin-right: 0cm;
+                      margin-bottom: 8pt;
+                      margin-left: 0cm;
+                      font-size: 11pt;
+                      font-family: 'Calibri', sans-serif;
+                    "
+                  >
+                    <strong>Tips Tambahan</strong>
+                  </p>
+                  <ul style="margin-bottom: 0cm; margin-top: 0cm" type="disc">
+                    <li
+                      style="
+                        margin-top: 0cm;
+                        margin-right: 0cm;
+                        margin-bottom: 8pt;
+                        margin-left: 0cm;
+                        font-size: 11pt;
+                        font-family: 'Calibri', sans-serif;
+                      "
+                    >
+                      <strong>Pelajari Shortcut:</strong> Memanfaatkan shortcut
+                      keyboard akan mempercepat pekerjaanmu.
+                    </li>
+                    <li
+                      style="
+                        margin-top: 0cm;
+                        margin-right: 0cm;
+                        margin-bottom: 8pt;
+                        margin-left: 0cm;
+                        font-size: 11pt;
+                        font-family: 'Calibri', sans-serif;
+                      "
+                    >
+                      <strong>Simpan File dengan Benar:</strong> Simpan file
+                      dalam format AI untuk menjaga kualitas vektor.
+                    </li>
+                    <li
+                      style="
+                        margin-top: 0cm;
+                        margin-right: 0cm;
+                        margin-bottom: 8pt;
+                        margin-left: 0cm;
+                        font-size: 11pt;
+                        font-family: 'Calibri', sans-serif;
+                      "
+                    >
+                      <strong>Gunakan Referensi:</strong> Cari inspirasi dari
+                      desainer lain dan gunakan sebagai referensi.
+                    </li>
+                    <li
+                      style="
+                        margin-top: 0cm;
+                        margin-right: 0cm;
+                        margin-bottom: 8pt;
+                        margin-left: 0cm;
+                        font-size: 11pt;
+                        font-family: 'Calibri', sans-serif;
+                      "
+                    >
+                      <strong>Perhatikan Detail:</strong> Perhatikan detail
+                      kecil seperti kerapihan path dan pemilihan warna.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <p
+                    style="
+                      margin-top: 0cm;
+                      margin-right: 0cm;
+                      margin-bottom: 8pt;
+                      margin-left: 0cm;
+                      font-size: 11pt;
+                      font-family: 'Calibri', sans-serif;
+                    "
+                  >
+                    <strong>Sumber Belajar yang Bisa Kamu Coba:</strong>
+                  </p>
+                  <ul style="margin-bottom: 0cm; margin-top: 0cm" type="disc">
+                    <li
+                      style="
+                        margin-top: 0cm;
+                        margin-right: 0cm;
+                        margin-bottom: 8pt;
+                        margin-left: 0cm;
+                        font-size: 11pt;
+                        font-family: 'Calibri', sans-serif;
+                      "
+                    >
+                      <strong>YouTube:</strong> Banyak channel yang menyediakan
+                      tutorial gratis, mulai dari dasar hingga tingkat lanjut.
+                    </li>
+                    <li
+                      style="
+                        margin-top: 0cm;
+                        margin-right: 0cm;
+                        margin-bottom: 8pt;
+                        margin-left: 0cm;
+                        font-size: 11pt;
+                        font-family: 'Calibri', sans-serif;
+                      "
+                    >
+                      <strong>SkillShare:</strong> Platform online yang
+                      menyediakan berbagai kursus desain grafis, termasuk Adobe
+                      Illustrator.
+                    </li>
+                    <li
+                      style="
+                        margin-top: 0cm;
+                        margin-right: 0cm;
+                        margin-bottom: 8pt;
+                        margin-left: 0cm;
+                        font-size: 11pt;
+                        font-family: 'Calibri', sans-serif;
+                      "
+                    >
+                      <strong>Udemy:</strong> Platform online lainnya yang
+                      menawarkan kursus-kursus dengan harga yang bervariasi.
+                    </li>
+                    <li
+                      style="
+                        margin-top: 0cm;
+                        margin-right: 0cm;
+                        margin-bottom: 8pt;
+                        margin-left: 0cm;
+                        font-size: 11pt;
+                        font-family: 'Calibri', sans-serif;
+                      "
+                    >
+                      <strong>Adobe Illustrator Help:</strong> Dokumentasi resmi
+                      Adobe yang sangat lengkap.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <p
+                    style="
+                      margin-top: 0cm;
+                      margin-right: 0cm;
+                      margin-bottom: 8pt;
+                      margin-left: 0cm;
+                      font-size: 11pt;
+                      font-family: 'Calibri', sans-serif;
+                    "
+                  >
+                    <strong>Tips untuk Pemula:</strong>
+                  </p>
+                  <ul style="margin-bottom: 0cm; margin-top: 0cm" type="disc">
+                    <li
+                      style="
+                        margin-top: 0cm;
+                        margin-right: 0cm;
+                        margin-bottom: 8pt;
+                        margin-left: 0cm;
+                        font-size: 11pt;
+                        font-family: 'Calibri', sans-serif;
+                      "
+                    >
+                      <strong>Mulai dengan yang Sederhana:</strong> Jangan
+                      langsung membuat proyek yang terlalu kompleks.
+                    </li>
+                    <li
+                      style="
+                        margin-top: 0cm;
+                        margin-right: 0cm;
+                        margin-bottom: 8pt;
+                        margin-left: 0cm;
+                        font-size: 11pt;
+                        font-family: 'Calibri', sans-serif;
+                      "
+                    >
+                      <strong>Berlatih Secara Rutin:</strong> Konsistensi adalah
+                      kunci untuk menguasai Adobe Illustrator.
+                    </li>
+                    <li
+                      style="
+                        margin-top: 0cm;
+                        margin-right: 0cm;
+                        margin-bottom: 8pt;
+                        margin-left: 0cm;
+                        font-size: 11pt;
+                        font-family: 'Calibri', sans-serif;
+                      "
+                    >
+                      <strong>Jangan Takut Membuat Kesalahan:</strong> Kesalahan
+                      adalah bagian dari proses belajar.
+                    </li>
+                    <li
+                      style="
+                        margin-top: 0cm;
+                        margin-right: 0cm;
+                        margin-bottom: 8pt;
+                        margin-left: 0cm;
+                        font-size: 11pt;
+                        font-family: 'Calibri', sans-serif;
+                      "
+                    >
+                      <strong>Berikan Waktu untuk Diri Sendiri:</strong> Setiap
+                      orang memiliki kecepatan belajar yang berbeda.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <p
+                    style="
+                      margin-top: 0cm;
+                      margin-right: 0cm;
+                      margin-bottom: 8pt;
+                      margin-left: 0cm;
+                      font-size: 11pt;
+                      font-family: 'Calibri', sans-serif;
+                    "
+                  >
+                    <strong
+                      >Ingat, menguasai Adobe Illustrator membutuhkan waktu dan
+                      kesabaran. Jangan menyerah dan teruslah berlatih!</strong
+                    >
+                  </p>
+                  <p
+                    style="
+                      margin-top: 0cm;
+                      margin-right: 0cm;
+                      margin-bottom: 8pt;
+                      margin-left: 0cm;
+                      font-size: 11pt;
+                      font-family: 'Calibri', sans-serif;
+                    "
+                  >
+                    &nbsp;
+                  </p>
+                </li>
+              </ol>
+            </dd>
+          </div>
+        </dl>
+      </div>
+
+      <footer class="bg-white-100 px-28 max-sm:px-3">
+        <div
+          class="relative mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8 lg:pt-24"
+        >
+          <div class="absolute end-4 top-4 sm:end-6 sm:top-6 lg:end-8 lg:top-8">
+            <a
+              class="inline-block rounded-full bg-purple-600 p-2 text-white shadow transition hover:bg-purple-500 sm:p-3 lg:p-4"
+              href="#home"
+            >
+              <span class="sr-only">Back to top</span>
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="size-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </a>
+          </div>
+
+          <div class="lg:flex lg:items-end lg:justify-between">
+            <div>
+              <div
+                class="flex justify-center text-blue-600 lg:justify-start"
+              ></div>
+
+              <p
+                class="mx-auto mt-6 max-w-md text-center leading-relaxed text-gray-500 lg:text-left"
+              >
+                Jl. Raya Cikeleng No.5, Arjasari, Kec. Leuwisari, Kabupaten
+                Tasikmalaya, Jawa Barat 46464
+              </p>
+            </div>
+
+            <ul
+              class="mt-12 flex flex-wrap justify-center gap-6 md:gap-8 lg:mt-0 lg:justify-end lg:gap-12"
+            >
+              <li>
+                <a
+                  class="text-gray-700 transition hover:text-gray-700/75"
+                  href="#"
+                >
+                  Home
+                </a>
+              </li>
+
+              <li>
+                <a
+                  class="text-gray-700 transition hover:text-gray-700/75"
+                  href="https://www.youtube.com/channel/UCrzY22DN6t2MWwkh5U0mOUA"
+                  target="_blank"
+                >
+                  Youtube
+                </a>
+              </li>
+
+              <li>
+                <a
+                  class="text-gray-700 transition hover:text-gray-700/75"
+                  href="https://www.facebook.com/smksingaparna/?locale=id_ID"
+                  target="_blank"
+                >
+                  Facebook
+                </a>
+              </li>
+
+              <li>
+                <a
+                  class="text-gray-700 transition hover:text-gray-700/75"
+                  href="https://www.instagram.com/smk_singaparna/"
+                  target="_blank"
+                >
+                  Instagram
+                </a>
+              </li>
+            </ul>
+          </div>
+          <p class="mt-12 text-center text-sm text-gray-500">
+            Created &copy; 202Riana Ali Nurdin, S.T.
+          </p>
+        </div>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+
+  <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+  <script>
+    // Burger menus
+    document.addEventListener("DOMContentLoaded", function () {
+      // open
+      const burger = document.querySelectorAll(".navbar-burger");
+      const menu = document.querySelectorAll(".navbar-menu");
+
+      if (burger.length && menu.length) {
+        for (var i = 0; i < burger.length; i++) {
+          burger[i].addEventListener("click", function () {
+            for (var j = 0; j < menu.length; j++) {
+              menu[j].classList.toggle("hidden");
+            }
+          });
+        }
+      }
+
+      // close
+      const close = document.querySelectorAll(".navbar-close");
+      const backdrop = document.querySelectorAll(".navbar-backdrop");
+
+      if (close.length) {
+        for (var i = 0; i < close.length; i++) {
+          close[i].addEventListener("click", function () {
+            for (var j = 0; j < menu.length; j++) {
+              menu[j].classList.toggle("hidden");
+            }
+          });
+        }
+      }
+
+      if (backdrop.length) {
+        for (var i = 0; i < backdrop.length; i++) {
+          backdrop[i].addEventListener("click", function () {
+            for (var j = 0; j < menu.length; j++) {
+              menu[j].classList.toggle("hidden");
+            }
+          });
+        }
+      }
+    });
+  </script>
+</html>

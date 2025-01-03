@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width= , initial-scale=1.0" />
+
+    <title>Desain Komunikasi Visual</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- transisi scroll -->
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/keen-slider.min.css"
+      rel="stylesheet"
+    />
+
+    <script type="module">
+      import KeenSlider from "https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/+esm";
+
+      const keenSliderActive = document.getElementById("keen-slider-active");
+      const keenSliderCount = document.getElementById("keen-slider-count");
+
+      const keenSlider = new KeenSlider(
+        "#keen-slider",
+        {
+          loop: true,
+          defaultAnimation: {
+            duration: 750,
+          },
+          slides: {
+            origin: "center",
+            perView: 1,
+            spacing: 16,
+          },
+          breakpoints: {
+            "(min-width: 640px)": {
+              slides: {
+                origin: "center",
+                perView: 1.5,
+                spacing: 16,
+              },
+            },
+            "(min-width: 768px)": {
+              slides: {
+                origin: "center",
+                perView: 1.75,
+                spacing: 16,
+              },
+            },
+            "(min-width: 1024px)": {
+              slides: {
+                origin: "center",
+                perView: 3,
+                spacing: 16,
+              },
+            },
+          },
+          created(slider) {
+            slider.slides[slider.track.details.rel].classList.remove(
+              "opacity-40"
+            );
+
+            keenSliderActive.innerText = slider.track.details.rel + 1;
+            keenSliderCount.innerText = slider.slides.length;
+          },
+          slideChanged(slider) {
+            slider.slides.forEach((slide) => slide.classList.add("opacity-40"));
+
+            slider.slides[slider.track.details.rel].classList.remove(
+              "opacity-40"
+            );
+
+            keenSliderActive.innerText = slider.track.details.rel + 1;
+          },
+        },
+        []
+      );
+
+      const keenSliderPrevious = document.getElementById(
+        "keen-slider-previous"
+      );
+      const keenSliderNext = document.getElementById("keen-slider-next");
+
+      keenSliderPrevious.addEventListener("click", () => keenSlider.prev());
+      keenSliderNext.addEventListener("click", () => keenSlider.next());
+    </script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="mx-auto bg-white overflow-auto h-full">
+      <!-- navigasi -->
+      <header
+        class="bg-white fixed px-28 max-sm:px-3 top-0 left-0 right-0 z-10"
+      >
+        <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+          <div class="flex h-16 items-center justify-between">
+            <div class="md:flex md:items-center md:gap-12">
+              <a>
+                <span class="sr-only">Home</span>
+                <h1
+                  class="bg-gradient-to-r from-pink-400 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-1xl italic"
+                >
+                  DKV.
+                </h1>
+              </a>
+            </div>
+
+            <div class="hidden md:block">
+              <nav aria-label="Global">
+                <ul class="flex items-center gap-10 text-sm">
+                  <li>
+                    <a
+                      class="text-gray-800 transition hover:text-gray-800/75 font-semi"
+                      href="#"
+                    >
+                      Beranda
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="text-gray-800 transition hover:text-gray-800/75"
+                      href="#"
+                    >
+                      Kelas
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="text-gray-800 transition hover:text-gray-800/75"
+                      href="#"
+                    >
+                      Riwayat
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+
+            <div class="flex items-center gap-4">
+              <div class="sm:flex sm:gap-4">
+                <a
+                  class="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+                  href="#"
+                >
+                  Chat Instruktur
+                </a>
+              </div>
+
+              <div class="block md:hidden">
+                <button
+                  class="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="size-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M4 6h16M4 12h16M4 18h16"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- BANNER -->
+      <section
+        class="bg-white sm:grid sm:grid-cols-2 drop-shadow-sm py-10 px-20 max-sm:px-1"
+      >
+        <div
+          class="p-8 md:p-12 lg:px-3 lg:py-28 max-sm:mt-30 px-10 max-sm:px-1"
+        >
+          <div
+            class="mx-auto max-w-xl max-sm:text-center text-end ltr:sm:text-left rtl:sm:text-right px-10"
+          >
+            <h2
+              class="text-2xl font-bold text-gray-700 md:text-3xl max-sm:mt-2"
+            >
+              Menginspirasi Generasi Kreatif Masa Depan
+            </h2>
+
+            <p class="text-gray-500 md:mt-4 md:block">
+              Berdedikasi untuk membimbing siswa menjadi kreator andal yang siap
+              bersaing di dunia industri kreatif. Dengan kurikulum yang
+              terstruktur dan pendekatan praktis
+            </p>
+
+            <div class="mt-4 md:mt-8">
+              <a
+                href="#"
+                class="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+              >
+                Mulai Belajar
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <img
+          class="max-sm:hidden"
+          alt=""
+          src="https://img.freepik.com/free-vector/ppc-advertising-managers-work-with-websites-ppc-campaign-pay-per-click-model-internet-marketing-tools-search-engine-advertising-concept-bright-vibrant-violet-isolated-illustration_335657-237.jpg?t=st=1735466177~exp=1735469777~hmac=db87a25601fc038838df5b90eff24b9793729ade0b06735dcb90e4499e1326e9&w=1060"
+          class="h-56 w-full object-cover sm:h-full"
+        />
+      </section>
+      <ul
+        class="grid grid-cols-12 max-sm:grid-cols-4 max-sm:py-3 gap-6 flex justify-between mt-4 text-center relative z-9 lg:-mt-24 px-20"
+      >
+        <li class="col-span-2">
+          <p class="text-3xl font-bold text-gray-700">
+            Corel<span class="font-extrabold italic">Draw</span>
+          </p>
+        </li>
+        <li class="col-span-2">
+          <p class="text-3xl font-bold text-gray-700">
+            <span class="font-extrabold italic">Illustrator</span>
+          </p>
+        </li>
+        <li class="col-span-2">
+          <p class="text-3xl font-bold text-gray-700">
+            Photoshop<span class="font-extrabold italic"></span>
+          </p>
+        </li>
+        <li class="col-span-2">
+          <p class="text-3xl font-bold text-gray-700">
+            UI<span class="font-extrabold italic">/UX</span>
+          </p>
+        </li>
+        <li class="col-span-2">
+          <p class="text-3xl font-bold text-gray-700">
+            Photo<span class="font-extrabold italic">Grafi</span>
+          </p>
+        </li>
+        <li class="col-span-2">
+          <p class="text-3xl font-bold text-gray-700">
+            Vidio<span class="font-extrabold italic">Grafi</span>
+          </p>
+        </li>
+      </ul>
+
+      <!-- MATERI PELAJARI -->
+
+      <!-- KONTEN YANG DIPELAJARI -->
+      <h2
+        class="pt-24 pb-8 mx-auto text-center max-w-screen-sm text-2xl font-bold text-gray-700 md:text-3xl"
+      >
+        Apa yang dipelajari <br />
+        DKV SMK Singaparna
+      </h2>
+
+      <section>
+        <ul class="grid grid-cols-2 flex px-28 max-sm:grid-cols-1 max-sm:p-1">
+          <li class="col-span-1 flex items-end">
+            <img
+              class="scale-90 rounded-lg"
+              src="https://img.freepik.com/free-vector/kawaii-influencer-stickers-collection_52683-70347.jpg?t=st=1735467144~exp=1735470744~hmac=29ffe03dbb61fc3d5cef65b8a03d8e70de5ff9e32a127141671426dce04cd8dc&w=900"
+              alt=""
+            />
+          </li>
+          <li class="col-span-1">
+            <h2
+              class="text-1xl font-bold text-gray-700 md:text-2xl max-sm:text-center max-sm:text-2xl"
+            >
+              Materi Dan Pratik Desain Komunikasi Visual
+            </h2>
+            <ul class="space-y-5 py-6">
+              <li class="flex items-center">
+                <div class="px-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    x="0px"
+                    y="0px"
+                    width="50"
+                    height="50"
+                    viewBox="0 0 100 100"
+                  >
+                    <path
+                      fill="#e6edb7"
+                      d="M50 13A37 37 0 1 0 50 87A37 37 0 1 0 50 13Z"
+                    ></path>
+                    <path
+                      fill="#88ae45"
+                      d="M13 27A2 2 0 1 0 13 31A2 2 0 1 0 13 27Z"
+                    ></path>
+                    <path
+                      fill="#f1bc19"
+                      d="M77 12A1 1 0 1 0 77 14 1 1 0 1 0 77 12zM83 11A4 4 0 1 0 83 19 4 4 0 1 0 83 11z"
+                    ></path>
+                    <path
+                      fill="#88ae45"
+                      d="M87 22A2 2 0 1 0 87 26A2 2 0 1 0 87 22Z"
+                    ></path>
+                    <path
+                      fill="#fbcd59"
+                      d="M81 74A2 2 0 1 0 81 78 2 2 0 1 0 81 74zM15 59A4 4 0 1 0 15 67 4 4 0 1 0 15 59z"
+                    ></path>
+                    <path
+                      fill="#88ae45"
+                      d="M25 85A2 2 0 1 0 25 89A2 2 0 1 0 25 85Z"
+                    ></path>
+                    <path
+                      fill="#fff"
+                      d="M18.5 51A2.5 2.5 0 1 0 18.5 56A2.5 2.5 0 1 0 18.5 51Z"
+                    ></path>
+                    <path
+                      fill="#f1bc19"
+                      d="M21 66A1 1 0 1 0 21 68A1 1 0 1 0 21 66Z"
+                    ></path>
+                    <path
+                      fill="#fff"
+                      d="M80 33A1 1 0 1 0 80 35A1 1 0 1 0 80 33Z"
+                    ></path>
+                    <g>
+                      <path
+                        fill="#88ae45"
+                        d="M50 26.042A23.958 23.958 0 1 0 50 73.958A23.958 23.958 0 1 0 50 26.042Z"
+                      ></path>
+                      <path
+                        fill="#472b29"
+                        d="M50,26.4c13.013,0,23.6,10.587,23.6,23.6S63.013,73.6,50,73.6S26.4,63.013,26.4,50 S36.987,26.4,50,26.4 M50,25c-13.807,0-25,11.193-25,25s11.193,25,25,25s25-11.193,25-25S63.807,25,50,25L50,25z"
+                      ></path>
+                      <path
+                        fill="#fdfcef"
+                        d="M50 30.5A19.5 19.5 0 1 0 50 69.5A19.5 19.5 0 1 0 50 30.5Z"
+                      ></path>
+                      <path
+                        fill="#472b29"
+                        d="M69.762,46.954c-0.043-0.273-0.298-0.46-0.571-0.418c-0.273,0.042-0.461,0.297-0.417,0.571 c0.931,5.976-1.054,12.082-5.309,16.334c-7.417,7.412-19.485,7.412-26.902,0c-7.417-7.411-7.417-19.471,0-26.883 c7.417-7.411,19.485-7.411,26.902,0c0.778,0.778,1.493,1.642,2.186,2.641c0.158,0.227,0.469,0.284,0.697,0.126 c0.225-0.155,0.283-0.468,0.126-0.696c-0.728-1.049-1.481-1.958-2.302-2.778c-7.807-7.801-20.51-7.802-28.318,0 c-7.807,7.802-7.807,20.496,0,28.298c7.807,7.801,20.51,7.802,28.318,0C68.653,59.672,70.743,53.244,69.762,46.954z"
+                      ></path>
+                      <path
+                        fill="#472b29"
+                        d="M67.569,42.796c0.105,0.256,0.398,0.378,0.653,0.273c0.254-0.104,0.378-0.396,0.272-0.652 c-0.315-0.766-0.609-1.395-0.926-1.977c-0.132-0.243-0.436-0.332-0.679-0.2c-0.043,0.023-0.082,0.053-0.115,0.086 c-0.153,0.153-0.194,0.393-0.086,0.593C66.989,41.468,67.269,42.065,67.569,42.796z"
+                      ></path>
+                    </g>
+                    <g>
+                      <path
+                        fill="#88ae45"
+                        d="M41,48.375c-0.434,0-0.842,0.169-1.149,0.476c-0.307,0.307-0.476,0.715-0.476,1.149 s0.169,0.842,0.476,1.149l7,7c0.307,0.307,0.715,0.476,1.149,0.476V59l0.031-0.375c0.445-0.009,0.869-0.201,1.167-0.526l11-12 c0.293-0.32,0.444-0.735,0.426-1.169c-0.019-0.434-0.206-0.833-0.525-1.127c-0.321-0.293-0.728-0.45-1.169-0.426 c-0.433,0.019-0.833,0.205-1.126,0.525l-9.854,10.749l-5.8-5.8C41.842,48.544,41.434,48.375,41,48.375z"
+                      ></path>
+                      <path
+                        fill="#472b29"
+                        d="M59,43.75L59,43.75c0.313,0,0.613,0.117,0.845,0.329c0.246,0.226,0.389,0.533,0.404,0.867 c0.014,0.334-0.102,0.653-0.328,0.899l-11,12c-0.229,0.25-0.555,0.398-0.921,0.405c-0.334,0-0.648-0.13-0.884-0.366l-7-7 C39.88,50.648,39.75,50.334,39.75,50s0.13-0.648,0.367-0.884C40.352,48.88,40.666,48.75,41,48.75s0.648,0.13,0.884,0.366 l5.523,5.523l0.554,0.554l0.529-0.577l9.589-10.461C58.318,43.894,58.645,43.75,59,43.75 M59,43c-0.541,0-1.08,0.218-1.474,0.649 l-9.589,10.46l-5.523-5.523C42.024,48.195,41.512,48,41,48s-1.024,0.195-1.414,0.586c-0.781,0.781-0.781,2.047,0,2.828l7,7 C46.961,58.79,47.47,59,48,59c0.015,0,0.029,0,0.043,0c0.545-0.012,1.062-0.246,1.431-0.648l11-12 c0.747-0.814,0.691-2.08-0.123-2.826C59.967,43.174,59.483,43,59,43L59,43z"
+                      ></path>
+                    </g>
+                  </svg>
+                </div>
+                <div class="px-2">
+                  <p class="font-bold text-gray-700">
+                    Penguasaan Perangkat Lunak.
+                  </p>
+                  <p class="text-gray-500">
+                    Adobe Illustrator, Photoshop, CorelDraw, hingga aplikasi 3D.
+                  </p>
+                </div>
+              </li>
+              <li class="flex items-center">
+                <div class="px-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    x="0px"
+                    y="0px"
+                    width="50"
+                    height="50"
+                    viewBox="0 0 100 100"
+                  >
+                    <path
+                      fill="#e6edb7"
+                      d="M50 13A37 37 0 1 0 50 87A37 37 0 1 0 50 13Z"
+                    ></path>
+                    <path
+                      fill="#88ae45"
+                      d="M13 27A2 2 0 1 0 13 31A2 2 0 1 0 13 27Z"
+                    ></path>
+                    <path
+                      fill="#f1bc19"
+                      d="M77 12A1 1 0 1 0 77 14 1 1 0 1 0 77 12zM83 11A4 4 0 1 0 83 19 4 4 0 1 0 83 11z"
+                    ></path>
+                    <path
+                      fill="#88ae45"
+                      d="M87 22A2 2 0 1 0 87 26A2 2 0 1 0 87 22Z"
+                    ></path>
+                    <path
+                      fill="#fbcd59"
+                      d="M81 74A2 2 0 1 0 81 78 2 2 0 1 0 81 74zM15 59A4 4 0 1 0 15 67 4 4 0 1 0 15 59z"
+                    ></path>
+                    <path
+                      fill="#88ae45"
+                      d="M25 85A2 2 0 1 0 25 89A2 2 0 1 0 25 85Z"
+                    ></path>
+                    <path
+                      fill="#fff"
+                      d="M18.5 51A2.5 2.5 0 1 0 18.5 56A2.5 2.5 0 1 0 18.5 51Z"
+                    ></path>
+                    <path
+                      fill="#f1bc19"
+                      d="M21 66A1 1 0 1 0 21 68A1 1 0 1 0 21 66Z"
+                    ></path>
+                    <path
+                      fill="#fff"
+                      d="M80 33A1 1 0 1 0 80 35A1 1 0 1 0 80 33Z"
+                    ></path>
+                    <g>
+                      <path
+                        fill="#88ae45"
+                        d="M50 26.042A23.958 23.958 0 1 0 50 73.958A23.958 23.958 0 1 0 50 26.042Z"
+                      ></path>
+                      <path
+                        fill="#472b29"
+                        d="M50,26.4c13.013,0,23.6,10.587,23.6,23.6S63.013,73.6,50,73.6S26.4,63.013,26.4,50 S36.987,26.4,50,26.4 M50,25c-13.807,0-25,11.193-25,25s11.193,25,25,25s25-11.193,25-25S63.807,25,50,25L50,25z"
+                      ></path>
+                      <path
+                        fill="#fdfcef"
+                        d="M50 30.5A19.5 19.5 0 1 0 50 69.5A19.5 19.5 0 1 0 50 30.5Z"
+                      ></path>
+                      <path
+                        fill="#472b29"
+                        d="M69.762,46.954c-0.043-0.273-0.298-0.46-0.571-0.418c-0.273,0.042-0.461,0.297-0.417,0.571 c0.931,5.976-1.054,12.082-5.309,16.334c-7.417,7.412-19.485,7.412-26.902,0c-7.417-7.411-7.417-19.471,0-26.883 c7.417-7.411,19.485-7.411,26.902,0c0.778,0.778,1.493,1.642,2.186,2.641c0.158,0.227,0.469,0.284,0.697,0.126 c0.225-0.155,0.283-0.468,0.126-0.696c-0.728-1.049-1.481-1.958-2.302-2.778c-7.807-7.801-20.51-7.802-28.318,0 c-7.807,7.802-7.807,20.496,0,28.298c7.807,7.801,20.51,7.802,28.318,0C68.653,59.672,70.743,53.244,69.762,46.954z"
+                      ></path>
+                      <path
+                        fill="#472b29"
+                        d="M67.569,42.796c0.105,0.256,0.398,0.378,0.653,0.273c0.254-0.104,0.378-0.396,0.272-0.652 c-0.315-0.766-0.609-1.395-0.926-1.977c-0.132-0.243-0.436-0.332-0.679-0.2c-0.043,0.023-0.082,0.053-0.115,0.086 c-0.153,0.153-0.194,0.393-0.086,0.593C66.989,41.468,67.269,42.065,67.569,42.796z"
+                      ></path>
+                    </g>
+                    <g>
+                      <path
+                        fill="#88ae45"
+                        d="M41,48.375c-0.434,0-0.842,0.169-1.149,0.476c-0.307,0.307-0.476,0.715-0.476,1.149 s0.169,0.842,0.476,1.149l7,7c0.307,0.307,0.715,0.476,1.149,0.476V59l0.031-0.375c0.445-0.009,0.869-0.201,1.167-0.526l11-12 c0.293-0.32,0.444-0.735,0.426-1.169c-0.019-0.434-0.206-0.833-0.525-1.127c-0.321-0.293-0.728-0.45-1.169-0.426 c-0.433,0.019-0.833,0.205-1.126,0.525l-9.854,10.749l-5.8-5.8C41.842,48.544,41.434,48.375,41,48.375z"
+                      ></path>
+                      <path
+                        fill="#472b29"
+                        d="M59,43.75L59,43.75c0.313,0,0.613,0.117,0.845,0.329c0.246,0.226,0.389,0.533,0.404,0.867 c0.014,0.334-0.102,0.653-0.328,0.899l-11,12c-0.229,0.25-0.555,0.398-0.921,0.405c-0.334,0-0.648-0.13-0.884-0.366l-7-7 C39.88,50.648,39.75,50.334,39.75,50s0.13-0.648,0.367-0.884C40.352,48.88,40.666,48.75,41,48.75s0.648,0.13,0.884,0.366 l5.523,5.523l0.554,0.554l0.529-0.577l9.589-10.461C58.318,43.894,58.645,43.75,59,43.75 M59,43c-0.541,0-1.08,0.218-1.474,0.649 l-9.589,10.46l-5.523-5.523C42.024,48.195,41.512,48,41,48s-1.024,0.195-1.414,0.586c-0.781,0.781-0.781,2.047,0,2.828l7,7 C46.961,58.79,47.47,59,48,59c0.015,0,0.029,0,0.043,0c0.545-0.012,1.062-0.246,1.431-0.648l11-12 c0.747-0.814,0.691-2.08-0.123-2.826C59.967,43.174,59.483,43,59,43L59,43z"
+                      ></path>
+                    </g>
+                  </svg>
+                </div>
+                <div class="px-2">
+                  <p class="font-bold text-gray-700">Proyek Kreatif.</p>
+                  <p class="text-gray-500">
+                    Membuat desain logo, poster, animasi, hingga media digital.
+                  </p>
+                </div>
+              </li>
+              <li class="flex items-center">
+                <div class="px-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    x="0px"
+                    y="0px"
+                    width="50"
+                    height="50"
+                    viewBox="0 0 100 100"
+                  >
+                    <path
+                      fill="#e6edb7"
+                      d="M50 13A37 37 0 1 0 50 87A37 37 0 1 0 50 13Z"
+                    ></path>
+                    <path
+                      fill="#88ae45"
+                      d="M13 27A2 2 0 1 0 13 31A2 2 0 1 0 13 27Z"
+                    ></path>
+                    <path
+                      fill="#f1bc19"
+                      d="M77 12A1 1 0 1 0 77 14 1 1 0 1 0 77 12zM83 11A4 4 0 1 0 83 19 4 4 0 1 0 83 11z"
+                    ></path>
+                    <path
+                      fill="#88ae45"
+                      d="M87 22A2 2 0 1 0 87 26A2 2 0 1 0 87 22Z"
+                    ></path>
+                    <path
+                      fill="#fbcd59"
+                      d="M81 74A2 2 0 1 0 81 78 2 2 0 1 0 81 74zM15 59A4 4 0 1 0 15 67 4 4 0 1 0 15 59z"
+                    ></path>
+                    <path
+                      fill="#88ae45"
+                      d="M25 85A2 2 0 1 0 25 89A2 2 0 1 0 25 85Z"
+                    ></path>
+                    <path
+                      fill="#fff"
+                      d="M18.5 51A2.5 2.5 0 1 0 18.5 56A2.5 2.5 0 1 0 18.5 51Z"
+                    ></path>
+                    <path
+                      fill="#f1bc19"
+                      d="M21 66A1 1 0 1 0 21 68A1 1 0 1 0 21 66Z"
+                    ></path>
+                    <path
+                      fill="#fff"
+                      d="M80 33A1 1 0 1 0 80 35A1 1 0 1 0 80 33Z"
+                    ></path>
+                    <g>
+                      <path
+                        fill="#88ae45"
+                        d="M50 26.042A23.958 23.958 0 1 0 50 73.958A23.958 23.958 0 1 0 50 26.042Z"
+                      ></path>
+                      <path
+                        fill="#472b29"
+                        d="M50,26.4c13.013,0,23.6,10.587,23.6,23.6S63.013,73.6,50,73.6S26.4,63.013,26.4,50 S36.987,26.4,50,26.4 M50,25c-13.807,0-25,11.193-25,25s11.193,25,25,25s25-11.193,25-25S63.807,25,50,25L50,25z"
+                      ></path>
+                      <path
+                        fill="#fdfcef"
+                        d="M50 30.5A19.5 19.5 0 1 0 50 69.5A19.5 19.5 0 1 0 50 30.5Z"
+                      ></path>
+                      <path
+                        fill="#472b29"
+                        d="M69.762,46.954c-0.043-0.273-0.298-0.46-0.571-0.418c-0.273,0.042-0.461,0.297-0.417,0.571 c0.931,5.976-1.054,12.082-5.309,16.334c-7.417,7.412-19.485,7.412-26.902,0c-7.417-7.411-7.417-19.471,0-26.883 c7.417-7.411,19.485-7.411,26.902,0c0.778,0.778,1.493,1.642,2.186,2.641c0.158,0.227,0.469,0.284,0.697,0.126 c0.225-0.155,0.283-0.468,0.126-0.696c-0.728-1.049-1.481-1.958-2.302-2.778c-7.807-7.801-20.51-7.802-28.318,0 c-7.807,7.802-7.807,20.496,0,28.298c7.807,7.801,20.51,7.802,28.318,0C68.653,59.672,70.743,53.244,69.762,46.954z"
+                      ></path>
+                      <path
+                        fill="#472b29"
+                        d="M67.569,42.796c0.105,0.256,0.398,0.378,0.653,0.273c0.254-0.104,0.378-0.396,0.272-0.652 c-0.315-0.766-0.609-1.395-0.926-1.977c-0.132-0.243-0.436-0.332-0.679-0.2c-0.043,0.023-0.082,0.053-0.115,0.086 c-0.153,0.153-0.194,0.393-0.086,0.593C66.989,41.468,67.269,42.065,67.569,42.796z"
+                      ></path>
+                    </g>
+                    <g>
+                      <path
+                        fill="#88ae45"
+                        d="M41,48.375c-0.434,0-0.842,0.169-1.149,0.476c-0.307,0.307-0.476,0.715-0.476,1.149 s0.169,0.842,0.476,1.149l7,7c0.307,0.307,0.715,0.476,1.149,0.476V59l0.031-0.375c0.445-0.009,0.869-0.201,1.167-0.526l11-12 c0.293-0.32,0.444-0.735,0.426-1.169c-0.019-0.434-0.206-0.833-0.525-1.127c-0.321-0.293-0.728-0.45-1.169-0.426 c-0.433,0.019-0.833,0.205-1.126,0.525l-9.854,10.749l-5.8-5.8C41.842,48.544,41.434,48.375,41,48.375z"
+                      ></path>
+                      <path
+                        fill="#472b29"
+                        d="M59,43.75L59,43.75c0.313,0,0.613,0.117,0.845,0.329c0.246,0.226,0.389,0.533,0.404,0.867 c0.014,0.334-0.102,0.653-0.328,0.899l-11,12c-0.229,0.25-0.555,0.398-0.921,0.405c-0.334,0-0.648-0.13-0.884-0.366l-7-7 C39.88,50.648,39.75,50.334,39.75,50s0.13-0.648,0.367-0.884C40.352,48.88,40.666,48.75,41,48.75s0.648,0.13,0.884,0.366 l5.523,5.523l0.554,0.554l0.529-0.577l9.589-10.461C58.318,43.894,58.645,43.75,59,43.75 M59,43c-0.541,0-1.08,0.218-1.474,0.649 l-9.589,10.46l-5.523-5.523C42.024,48.195,41.512,48,41,48s-1.024,0.195-1.414,0.586c-0.781,0.781-0.781,2.047,0,2.828l7,7 C46.961,58.79,47.47,59,48,59c0.015,0,0.029,0,0.043,0c0.545-0.012,1.062-0.246,1.431-0.648l11-12 c0.747-0.814,0.691-2.08-0.123-2.826C59.967,43.174,59.483,43,59,43L59,43z"
+                      ></path>
+                    </g>
+                  </svg>
+                </div>
+                <div class="px-2">
+                  <p class="font-bold text-gray-700">
+                    Dasar-Dasar Desain Visual
+                  </p>
+                  <p class="text-gray-500">
+                    Teori warna, tipografi, dan prinsip desain.
+                  </p>
+                </div>
+              </li>
+              <li class="flex items-center">
+                <div class="px-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    x="0px"
+                    y="0px"
+                    width="50"
+                    height="50"
+                    viewBox="0 0 100 100"
+                  >
+                    <path
+                      fill="#e6edb7"
+                      d="M50 13A37 37 0 1 0 50 87A37 37 0 1 0 50 13Z"
+                    ></path>
+                    <path
+                      fill="#88ae45"
+                      d="M13 27A2 2 0 1 0 13 31A2 2 0 1 0 13 27Z"
+                    ></path>
+                    <path
+                      fill="#f1bc19"
+                      d="M77 12A1 1 0 1 0 77 14 1 1 0 1 0 77 12zM83 11A4 4 0 1 0 83 19 4 4 0 1 0 83 11z"
+                    ></path>
+                    <path
+                      fill="#88ae45"
+                      d="M87 22A2 2 0 1 0 87 26A2 2 0 1 0 87 22Z"
+                    ></path>
+                    <path
+                      fill="#fbcd59"
+                      d="M81 74A2 2 0 1 0 81 78 2 2 0 1 0 81 74zM15 59A4 4 0 1 0 15 67 4 4 0 1 0 15 59z"
+                    ></path>
+                    <path
+                      fill="#88ae45"
+                      d="M25 85A2 2 0 1 0 25 89A2 2 0 1 0 25 85Z"
+                    ></path>
+                    <path
+                      fill="#fff"
+                      d="M18.5 51A2.5 2.5 0 1 0 18.5 56A2.5 2.5 0 1 0 18.5 51Z"
+                    ></path>
+                    <path
+                      fill="#f1bc19"
+                      d="M21 66A1 1 0 1 0 21 68A1 1 0 1 0 21 66Z"
+                    ></path>
+                    <path
+                      fill="#fff"
+                      d="M80 33A1 1 0 1 0 80 35A1 1 0 1 0 80 33Z"
+                    ></path>
+                    <g>
+                      <path
+                        fill="#88ae45"
+                        d="M50 26.042A23.958 23.958 0 1 0 50 73.958A23.958 23.958 0 1 0 50 26.042Z"
+                      ></path>
+                      <path
+                        fill="#472b29"
+                        d="M50,26.4c13.013,0,23.6,10.587,23.6,23.6S63.013,73.6,50,73.6S26.4,63.013,26.4,50 S36.987,26.4,50,26.4 M50,25c-13.807,0-25,11.193-25,25s11.193,25,25,25s25-11.193,25-25S63.807,25,50,25L50,25z"
+                      ></path>
+                      <path
+                        fill="#fdfcef"
+                        d="M50 30.5A19.5 19.5 0 1 0 50 69.5A19.5 19.5 0 1 0 50 30.5Z"
+                      ></path>
+                      <path
+                        fill="#472b29"
+                        d="M69.762,46.954c-0.043-0.273-0.298-0.46-0.571-0.418c-0.273,0.042-0.461,0.297-0.417,0.571 c0.931,5.976-1.054,12.082-5.309,16.334c-7.417,7.412-19.485,7.412-26.902,0c-7.417-7.411-7.417-19.471,0-26.883 c7.417-7.411,19.485-7.411,26.902,0c0.778,0.778,1.493,1.642,2.186,2.641c0.158,0.227,0.469,0.284,0.697,0.126 c0.225-0.155,0.283-0.468,0.126-0.696c-0.728-1.049-1.481-1.958-2.302-2.778c-7.807-7.801-20.51-7.802-28.318,0 c-7.807,7.802-7.807,20.496,0,28.298c7.807,7.801,20.51,7.802,28.318,0C68.653,59.672,70.743,53.244,69.762,46.954z"
+                      ></path>
+                      <path
+                        fill="#472b29"
+                        d="M67.569,42.796c0.105,0.256,0.398,0.378,0.653,0.273c0.254-0.104,0.378-0.396,0.272-0.652 c-0.315-0.766-0.609-1.395-0.926-1.977c-0.132-0.243-0.436-0.332-0.679-0.2c-0.043,0.023-0.082,0.053-0.115,0.086 c-0.153,0.153-0.194,0.393-0.086,0.593C66.989,41.468,67.269,42.065,67.569,42.796z"
+                      ></path>
+                    </g>
+                    <g>
+                      <path
+                        fill="#88ae45"
+                        d="M41,48.375c-0.434,0-0.842,0.169-1.149,0.476c-0.307,0.307-0.476,0.715-0.476,1.149 s0.169,0.842,0.476,1.149l7,7c0.307,0.307,0.715,0.476,1.149,0.476V59l0.031-0.375c0.445-0.009,0.869-0.201,1.167-0.526l11-12 c0.293-0.32,0.444-0.735,0.426-1.169c-0.019-0.434-0.206-0.833-0.525-1.127c-0.321-0.293-0.728-0.45-1.169-0.426 c-0.433,0.019-0.833,0.205-1.126,0.525l-9.854,10.749l-5.8-5.8C41.842,48.544,41.434,48.375,41,48.375z"
+                      ></path>
+                      <path
+                        fill="#472b29"
+                        d="M59,43.75L59,43.75c0.313,0,0.613,0.117,0.845,0.329c0.246,0.226,0.389,0.533,0.404,0.867 c0.014,0.334-0.102,0.653-0.328,0.899l-11,12c-0.229,0.25-0.555,0.398-0.921,0.405c-0.334,0-0.648-0.13-0.884-0.366l-7-7 C39.88,50.648,39.75,50.334,39.75,50s0.13-0.648,0.367-0.884C40.352,48.88,40.666,48.75,41,48.75s0.648,0.13,0.884,0.366 l5.523,5.523l0.554,0.554l0.529-0.577l9.589-10.461C58.318,43.894,58.645,43.75,59,43.75 M59,43c-0.541,0-1.08,0.218-1.474,0.649 l-9.589,10.46l-5.523-5.523C42.024,48.195,41.512,48,41,48s-1.024,0.195-1.414,0.586c-0.781,0.781-0.781,2.047,0,2.828l7,7 C46.961,58.79,47.47,59,48,59c0.015,0,0.029,0,0.043,0c0.545-0.012,1.062-0.246,1.431-0.648l11-12 c0.747-0.814,0.691-2.08-0.123-2.826C59.967,43.174,59.483,43,59,43L59,43z"
+                      ></path>
+                    </g>
+                  </svg>
+                </div>
+                <div class="px-2">
+                  <p class="font-bold text-gray-700">
+                    Keterampilan Profesional.
+                  </p>
+                  <p class="text-gray-500">
+                    Manajemen proyek, presentasi karya, dan membangun
+                    portofolio.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <!-- KELAS TERSEDIA -->
+      <section id="kelastersedia">
+        <p
+          class="text-2xl font-bold text-rose-600 sm:text-3xl text-center my-8"
+        >
+          Kelas Ter'sedia Semester Ini..
+        </p>
+        <ul
+          class="grid grid-cols-3 gap-4 px-28 mb-10 max-sm:grid-cols-1 max-sm:px-12 max-sm:gap-10"
+        >
+          <li class="col-span-1 bg-white shadow-lg rounded-s-3xl">
+            <a
+              href="#"
+              class="relative block rounded-tr-3xl border border-gray-100"
+            >
+              <span
+                class="absolute -right-px -top-px rounded-bl-3xl rounded-tr-3xl bg-rose-600 px-6 py-4 font-medium uppercase tracking-widest text-white"
+              >
+                Kelas X
+              </span>
+
+              <img
+                src="https://img.freepik.com/free-vector/gradient-illustration-world-art-day_23-2151269767.jpg?t=st=1735463199~exp=1735466799~hmac=4aab7d7f1f3771410b3d894ac01d8fc070bffdb8eee75e0c4e4729e81a808058&w=740"
+                alt=""
+                class="h-80 w-full rounded-tr-3xl object-cover"
+              />
+
+              <div class="p-4 text-center">
+                <strong class="text-xl font-medium text-gray-700">
+                  Mini Project
+                </strong>
+
+                <p class="mt-2 text-pretty text-gray-700">
+                  Mini projek desain grafis ini bertujuan untuk melatih
+                  kemampuan siswa menciptakan identitas visual yang menarik
+                </p>
+
+                <div class="flex gap-3 justify-center">
+                  <span
+                    class="mt-4 block rounded-md border border-indigo-900 bg-indigo-900 px-3 py-2 text-sm font-medium uppercase tracking-widest text-white transition-colors hover:bg-white hover:text-indigo-900"
+                  >
+                    Detail Materi
+                  </span>
+                  <span
+                    class="mt-4 block rounded-md border border-rose-500 bg-rose-500 px-3 py-2 text-sm font-medium uppercase tracking-widest text-white transition-colors hover:bg-white hover:text-rose-500"
+                  >
+                    Kirim Tugas
+                  </span>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li class="col-span-1 bg-white shadow-lg rounded-s-3xl">
+            <a
+              href="#"
+              class="relative block rounded-tr-3xl border border-gray-100"
+            >
+              <span
+                class="absolute -right-px -top-px rounded-bl-3xl rounded-tr-3xl bg-rose-600 px-6 py-4 font-medium uppercase tracking-widest text-white"
+              >
+                Kelas XI
+              </span>
+
+              <img
+                src="https://img.freepik.com/free-vector/social-media-3d-concept-background_52683-96682.jpg?t=st=1735465245~exp=1735468845~hmac=6912919595328b545698e97c9ee4eb31e078993032b76c38f55596e12613bbda&w=1060"
+                alt=""
+                class="h-80 w-full rounded-tr-3xl object-cover"
+              />
+
+              <div class="p-4 text-center">
+                <strong class="text-xl font-medium text-gray-700">
+                  Desain UI Illustrator
+                </strong>
+
+                <p class="mt-2 text-pretty text-gray-700">
+                  UI berfokus pada pembuatan antarmuka yang dapat digunakan oleh
+                  pengguna dengan mudah, intuitif, dan menarik.
+                </p>
+
+                <div class="flex gap-3 justify-center">
+                  <span
+                    class="mt-4 block rounded-md border border-indigo-900 bg-indigo-900 px-3 py-2 text-sm font-medium uppercase tracking-widest text-white transition-colors hover:bg-white hover:text-indigo-900"
+                  >
+                    Detail Materi
+                  </span>
+                  <span
+                    class="mt-4 block rounded-md border border-rose-500 bg-rose-500 px-3 py-2 text-sm font-medium uppercase tracking-widest text-white transition-colors hover:bg-white hover:text-rose-500"
+                  >
+                    Kirim Tugas
+                  </span>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li class="col-span-1 bg-white shadow-lg rounded-s-3xl">
+            <a
+              href="#"
+              class="relative block rounded-tr-3xl border border-gray-100"
+            >
+              <span
+                class="absolute -right-px -top-px rounded-bl-3xl rounded-tr-3xl bg-rose-600 px-6 py-4 font-medium uppercase tracking-widest text-white"
+              >
+                Kelas XII
+              </span>
+
+              <img
+                src="https://img.freepik.com/free-vector/online-education_52683-6967.jpg?uid=R101720463&ga=GA1.1.324854103.1735460357&semt=ais_hybrid"
+                alt=""
+                class="h-80 w-full rounded-tr-3xl object-cover"
+              />
+
+              <div class="p-4 text-center">
+                <strong class="text-xl font-medium text-gray-700">
+                  Prototipe Uji Kompetensi
+                </strong>
+
+                <p class="mt-2 text-pretty text-gray-700">
+                  Pratik kemampuan siswa dalam merancang, mengedit, dan
+                  menghasilkan karya video yang kreatif dan berkualitas
+                </p>
+
+                <div class="flex gap-3 justify-center mb-4">
+                  <span
+                    class="mt-4 block rounded-md border border-indigo-900 bg-indigo-900 px-3 py-2 text-sm font-medium uppercase tracking-widest text-white transition-colors hover:bg-white hover:text-indigo-900"
+                  >
+                    Detail Materi
+                  </span>
+                  <span
+                    class="mt-4 block rounded-md border border-rose-500 bg-rose-500 px-3 py-2 text-sm font-medium uppercase tracking-widest text-white transition-colors hover:bg-white hover:text-rose-500"
+                  >
+                    Kirim Tugas
+                  </span>
+                </div>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <link
+        href="https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/keen-slider.min.css"
+        rel="stylesheet"
+      />
+
+      <script type="module">
+        import KeenSlider from "https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/+esm";
+
+        const keenSlider = new KeenSlider(
+          "#keen-slider",
+          {
+            loop: true,
+            slides: {
+              origin: "center",
+              perView: 1.25,
+              spacing: 16,
+            },
+            breakpoints: {
+              "(min-width: 1024px)": {
+                slides: {
+                  origin: "auto",
+                  perView: 1.5,
+                  spacing: 32,
+                },
+              },
+            },
+          },
+          []
+        );
+
+        const keenSliderPrevious = document.getElementById(
+          "keen-slider-previous"
+        );
+        const keenSliderNext = document.getElementById("keen-slider-next");
+
+        const keenSliderPreviousDesktop = document.getElementById(
+          "keen-slider-previous-desktop"
+        );
+        const keenSliderNextDesktop = document.getElementById(
+          "keen-slider-next-desktop"
+        );
+
+        keenSliderPrevious.addEventListener("click", () => keenSlider.prev());
+        keenSliderNext.addEventListener("click", () => keenSlider.next());
+
+        keenSliderPreviousDesktop.addEventListener("click", () =>
+          keenSlider.prev()
+        );
+        keenSliderNextDesktop.addEventListener("click", () =>
+          keenSlider.next()
+        );
+      </script>
+
+      <section class="bg-white px-28 max-sm:px-5">
+        <div
+          class="mx-auto max-w-[1340px] px-4 py-12 sm:px-6 lg:me-0 lg:py-16 lg:pe-0 lg:ps-8 xl:py-24"
+        >
+          <div
+            class="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:items-center lg:gap-16"
+          >
+            <div
+              class="max-w-xl text-center ltr:sm:text-left rtl:sm:text-right"
+            >
+              <h2
+                class="text-3xl font-bold tracking-tight sm:text-4xl text-gray-700"
+              >
+                Apa Kata Mereka ...
+              </h2>
+
+              <p class="mt-4 text-gray-700">
+                Testimoni ini dibuat dengan berbagai sudut pandang dan
+                pengalaman untuk memberikan gambaran yang lebih komprehensif:
+              </p>
+
+              <div class="hidden lg:mt-8 lg:flex lg:gap-4">
+                <button
+                  aria-label="Previous slide"
+                  id="keen-slider-previous-desktop"
+                  class="rounded-full border p-3 transition text-purple-600 border-purple-600 hover:bg-purple-600 hover:text-white"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="size-5 rtl:rotate-180"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M15.75 19.5L8.25 12l7.5-7.5"
+                      class=""
+                    ></path>
+                  </svg>
+                </button>
+
+                <button
+                  aria-label="Next slide"
+                  id="keen-slider-next-desktop"
+                  class="rounded-full border p-3 transition text-purple-600 border-purple-600 hover:bg-purple-600 hover:text-white"
+                >
+                  <svg
+                    class="size-5 rtl:rotate-180"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9 5l7 7-7 7"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      class=""
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="-mx-6 lg:col-span-2 lg:mx-0">
+              <div id="keen-slider" class="keen-slider">
+                <div
+                  class="keen-slider__slide"
+                  style="
+                    min-width: 681.067px;
+                    max-width: 681.067px;
+                    transform: translate3d(-609.933px, 0px, 0px);
+                  "
+                >
+                  <blockquote
+                    class="flex h-full flex-col justify-between bg-white p-6 shadow-sm sm:p-8 lg:p-12"
+                  >
+                    <div class="">
+                      <div class="mt-4">
+                        <p
+                          class="text-2xl font-bold sm:text-3xl text-purple-600"
+                        >
+                          Indri' Sulistie
+                        </p>
+
+                        <p class="mt-4 leading-relaxed text-gray-700">
+                          Awalnya, saya memilih jurusan DKV karena tertarik
+                          dengan dunia seni. Namun, seiring berjalannya waktu,
+                          saya menyadari bahwa DKV lebih dari sekadar menggambar
+                          dan membuat desain.
+                        </p>
+                      </div>
+                    </div>
+
+                    <footer
+                      class="mt-4 text-sm font-medium text-gray-00 sm:mt-6"
+                    >
+                      — Kelas DKV
+                    </footer>
+                  </blockquote>
+                </div>
+
+                <div
+                  class="keen-slider__slide"
+                  style="
+                    min-width: 681.067px;
+                    max-width: 681.067px;
+                    transform: translate3d(-593.933px, 0px, 0px);
+                  "
+                >
+                  <blockquote
+                    class="flex h-full flex-col justify-between bg-white p-6 shadow-sm sm:p-8 lg:p-12"
+                  >
+                    <div>
+                      <div class="flex gap-0.5 text-green-500">
+                        <svg
+                          class="size-5"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                          ></path>
+                        </svg>
+
+                        <svg
+                          class="size-5"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                          ></path>
+                        </svg>
+
+                        <svg
+                          class="size-5"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                          ></path>
+                        </svg>
+
+                        <svg
+                          class="size-5"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                          ></path>
+                        </svg>
+
+                        <svg
+                          class="size-5"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                          ></path>
+                        </svg>
+                      </div>
+
+                      <div class="mt-4">
+                        <p class="text-2xl font-bold text-rose-600 sm:text-3xl">
+                          Ricky'
+                        </p>
+
+                        <p class="mt-4 leading-relaxed text-gray-700">
+                          "Sebelum masuk jurusan Desain Komunikasi Visual, saya
+                          merasa kemampuan desain saya masih sangat terbatas.
+                          Namun, setelah mengikuti perkuliahan, saya merasa
+                          sangat berkembang
+                        </p>
+                      </div>
+                    </div>
+
+                    <footer
+                      class="mt-4 text-sm font-medium text-gray-700 sm:mt-6"
+                    >
+                      — Kelas DKV
+                    </footer>
+                  </blockquote>
+                </div>
+
+                <div
+                  class="keen-slider__slide"
+                  style="
+                    min-width: 681.067px;
+                    max-width: 681.067px;
+                    transform: translate3d(-577.933px, 0px, 0px);
+                  "
+                >
+                  <blockquote
+                    class="flex h-full flex-col justify-between bg-white p-6 shadow-sm sm:p-8 lg:p-12"
+                  >
+                    <div class="">
+                      <div class="mt-4">
+                        <p
+                          class="text-2xl font-bold sm:text-3xl text-purple-600"
+                        >
+                          Vina' Ariani
+                        </p>
+
+                        <p class="mt-4 leading-relaxed text-gray-700">
+                          Salah satu hal yang paling saya suka dari jurusan DKV
+                          adalah banyaknya kesempatan untuk praktik langsung.
+                          Kami sering diajak untuk mengikuti lomba desain
+                        </p>
+                      </div>
+                    </div>
+
+                    <footer
+                      class="mt-4 text-sm font-medium text-gray-700 sm:mt-6"
+                    >
+                      — Michael Scott
+                    </footer>
+                  </blockquote>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8 flex justify-center gap-4 lg:hidden">
+            <button
+              aria-label="Previous slide"
+              id="keen-slider-previous"
+              class="rounded-full border border-rose-600 p-4 text-rose-600 transition hover:bg-rose-600 hover:text-white"
+            >
+              <svg
+                class="size-5 -rotate-180 transform"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9 5l7 7-7 7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                ></path>
+              </svg>
+            </button>
+
+            <button
+              aria-label="Next slide"
+              id="keen-slider-next"
+              class="rounded-full border border-rose-600 p-4 text-rose-600 transition hover:bg-rose-600 hover:text-white"
+            >
+              <svg
+                class="size-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9 5l7 7-7 7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <footer class="bg-white-100 px-28 max-sm:px-3">
+        <div
+          class="relative mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8 lg:pt-24"
+        >
+          <div class="absolute end-4 top-4 sm:end-6 sm:top-6 lg:end-8 lg:top-8">
+            <a
+              class="inline-block rounded-full bg-purple-600 p-2 text-white shadow transition hover:bg-purple-500 sm:p-3 lg:p-4"
+              href="#home"
+            >
+              <span class="sr-only">Back to top</span>
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="size-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </a>
+          </div>
+
+          <div class="lg:flex lg:items-end lg:justify-between">
+            <div>
+              <div
+                class="flex justify-center text-blue-600 lg:justify-start"
+              ></div>
+
+              <p
+                class="mx-auto mt-6 max-w-md text-center leading-relaxed text-gray-500 lg:text-left"
+              >
+                Jl. Raya Cikeleng No.5, Arjasari, Kec. Leuwisari, Kabupaten
+                Tasikmalaya, Jawa Barat 46464
+              </p>
+            </div>
+
+            <ul
+              class="mt-12 flex flex-wrap justify-center gap-6 md:gap-8 lg:mt-0 lg:justify-end lg:gap-12"
+            >
+              <li>
+                <a
+                  class="text-gray-700 transition hover:text-gray-700/75"
+                  href="#"
+                >
+                  Home
+                </a>
+              </li>
+
+              <li>
+                <a
+                  class="text-gray-700 transition hover:text-gray-700/75"
+                  href="https://www.youtube.com/channel/UCrzY22DN6t2MWwkh5U0mOUA"
+                  target="_blank"
+                >
+                  Youtube
+                </a>
+              </li>
+
+              <li>
+                <a
+                  class="text-gray-700 transition hover:text-gray-700/75"
+                  href="https://www.facebook.com/smksingaparna/?locale=id_ID"
+                  target="_blank"
+                >
+                  Facebook
+                </a>
+              </li>
+
+              <li>
+                <a
+                  class="text-gray-700 transition hover:text-gray-700/75"
+                  href="https://www.instagram.com/smk_singaparna/"
+                  target="_blank"
+                >
+                  Instagram
+                </a>
+              </li>
+            </ul>
+          </div>
+          <p class="mt-12 text-center text-sm text-gray-500">
+            Created &copy; 2025. Riana Ali Nurdin, S.T.
+          </p>
+        </div>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+
+  <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+  <script>
+    // Burger menus
+    document.addEventListener("DOMContentLoaded", function () {
+      // open
+      const burger = document.querySelectorAll(".navbar-burger");
+      const menu = document.querySelectorAll(".navbar-menu");
+
+      if (burger.length && menu.length) {
+        for (var i = 0; i < burger.length; i++) {
+          burger[i].addEventListener("click", function () {
+            for (var j = 0; j < menu.length; j++) {
+              menu[j].classList.toggle("hidden");
+            }
+          });
+        }
+      }
+
+      // close
+      const close = document.querySelectorAll(".navbar-close");
+      const backdrop = document.querySelectorAll(".navbar-backdrop");
+
+      if (close.length) {
+        for (var i = 0; i < close.length; i++) {
+          close[i].addEventListener("click", function () {
+            for (var j = 0; j < menu.length; j++) {
+              menu[j].classList.toggle("hidden");
+            }
+          });
+        }
+      }
+
+      if (backdrop.length) {
+        for (var i = 0; i < backdrop.length; i++) {
+          backdrop[i].addEventListener("click", function () {
+            for (var j = 0; j < menu.length; j++) {
+              menu[j].classList.toggle("hidden");
+            }
+          });
+        }
+      }
+    });
+  </script>
+</html>
